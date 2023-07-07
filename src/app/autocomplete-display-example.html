@@ -2,12 +2,11 @@
   <mat-form-field class="example-full-width">
     <input
       type="text"
+      name="upiHandle"
       placeholder="upi@handle"
       matInput
-      #trigger="matAutocompleteTrigger"
+      [(ngModel)]="upiHandle"
       [matAutocomplete]="auto"
-      [matAutocompleteDisabled]="true"
-      (keyup)="onKeyup($event, trigger)"
     />
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let upiHandle of upiHandles" [value]="upiHandle">

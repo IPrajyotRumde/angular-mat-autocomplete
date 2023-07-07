@@ -8,6 +8,8 @@ import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 })
 export class AutocompleteDisplayExample implements OnInit {
   upiHandles = ['okaxis', 'okicici', 'okhdfcbank', 'oksbi'];
+  disableSearch = true;
+  upiHandle = '';
   ngOnInit() {}
 
   onKeyup(event: any, trigger: MatAutocompleteTrigger) {
@@ -15,6 +17,7 @@ export class AutocompleteDisplayExample implements OnInit {
     if (event.key == '@' && !trigger.panelOpen) {
       trigger.openPanel();
       trigger.updatePosition();
+      this.disableSearch = false;
     }
   }
 }
