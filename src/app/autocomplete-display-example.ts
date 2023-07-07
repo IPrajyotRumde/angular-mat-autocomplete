@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'autocomplete-display-example',
@@ -8,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class AutocompleteDisplayExample implements OnInit {
   upiHandles = ['okaxis', 'okicici', 'okhdfcbank', 'oksbi'];
   ngOnInit() {}
-}
 
-/**  Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
+  onKeyup(event: any, trigger: MatAutocompleteTrigger) {
+    console.log(event.key);
+    if (event.key == '@' && !trigger.panelOpen) {
+      trigger.openPanel();
+      trigger.updatePosition();
+    }
+  }
+}
